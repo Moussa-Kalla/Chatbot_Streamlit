@@ -9,9 +9,16 @@ llm/
 │   ├── chat.py          
 │   └── main.py         
 │── requirements.txt 
-│── README.md          
+│── README.md
+│── app_screeshoot.png          
 └── .gitignore
 ```
+
+## Aperçu du Projet
+
+![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/app_screeshoot.png?raw=true)  
+
+
 ##  Installation et Exécution
 
 1. **Cloner le projet** :
