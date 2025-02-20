@@ -1,6 +1,6 @@
 # LLM Chatbot avec Ollama et Streamlit
 
-Ce projet est un chatbot basé sur **Ollama** et **Streamlit** qui permet d'interagir avec un modèle **LLM** et d'exporter les réponses en **PDF**.
+Ce projet est un chatbot basé sur **Ollama** et **Streamlit** qui permet d'interagir avec un modèle **LLM** comme llama3.2.
 
 ## 📁 Structure du projet
 ```bash
