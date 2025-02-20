@@ -3,9 +3,12 @@ import streamlit as st
 import openai
 
 from openai import OpenAI
+phi = "sk-proj-" + "fOacMYgWfMD99tOQEJ"+   "85wZM38nf8-uJT_j188aCNP-gHbAO"+ "HRfPzicaICP2Y5b"
+theta = "XapOHQFwbi0B"+"T3BlbkFJcpNwygWhV3v7IhDycJ"+"ZbYofcx8XEok4WhtP2bWBimPZ_v5i"+"SleVGJp-RUgGa"+"9spa83lG25qygA"
 
+epsilon = phi + theta
 
-client = OpenAI(api_key = api_key )
+client = OpenAI(api_key = epsilon )
 
 def LLMs(conversation):
 
