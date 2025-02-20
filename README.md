@@ -16,6 +16,8 @@ llm/
 
 ## Aperçu du Projet
 
+liens d'accès :  [Kalla-chat.streamlit.app](Kalla-chat.streamlit.app)
+
 ![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/app_screeshoot.png?raw=true)  
 
 
