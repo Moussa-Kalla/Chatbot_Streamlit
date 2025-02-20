@@ -10,7 +10,7 @@ llm/
 │   └── main.py         
 │── requirements.txt 
 │── README.md
-│── app_screeshoot.mp4          
+│── app_screeshoot.png          
 └── .gitignore
 ```
 
@@ -18,7 +18,7 @@ llm/
 
 Liens d'accès :  [https://kalla-chat.streamlit.app/](https://kalla-chat.streamlit.app/)
 
-![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/app_screeshoot.mp4?raw=true)  
+![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/app_screeshoot.png?raw=true)  
 
 
 ##  Installation et Exécution
