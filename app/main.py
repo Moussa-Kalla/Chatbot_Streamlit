@@ -2,6 +2,7 @@ import streamlit as st
 from chat import LLMs
 
 
+
 def generate_conversation_name(prompt, max_len=30):
 
 
@@ -20,7 +21,6 @@ def generate_conversation_name(prompt, max_len=30):
 
     return short_name[0].upper() + short_name[1:] if short_name else "Conversation"
 
-
 if "conversations" not in st.session_state:
 
     st.session_state["conversations"] = []
@@ -28,9 +28,7 @@ if "conversations" not in st.session_state:
 if "selected_conv_index" not in st.session_state:
     st.session_state["selected_conv_index"] = None
 
-
 st.sidebar.title("Conversations")
-
 
 if st.sidebar.button("Nouvelle conversation"):
     new_conv = {

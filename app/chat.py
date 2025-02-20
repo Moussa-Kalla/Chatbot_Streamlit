@@ -1,18 +1,29 @@
 import ollama
 import streamlit as st
+import openai
+
+from openai import OpenAI
+
+
+client = OpenAI(api_key = api_key )
 
 def LLMs(conversation):
-    stream = ollama.chat(
-        model="llama3.2:1b",
+
+    response = client.chat.completions.create(
+        model="gpt-4",
         messages=conversation,
-        stream=True,
+        max_tokens=1000,
+        stream=True  
     )
 
-    content = ""
-    text_placeholder = st.empty()
+    content = ""  
+    text_placeholder = st.empty() 
 
-    for chunk in stream:
-        content += chunk["message"]["content"]
-        text_placeholder.markdown(content)
+    for chunk in response:
+        if chunk.choices and hasattr(chunk.choices[0].delta, "content"):
+            delta_content = chunk.choices[0].delta.content
+            if delta_content: 
+                content += delta_content
+                text_placeholder.markdown(content)
 
     return content
