@@ -10,7 +10,7 @@ llm/
 │   └── main.py         
 │── requirements.txt 
 │── README.md          
-│── .gitignore
+└── .gitignore
 ```
 ##  Installation et Exécution
 
