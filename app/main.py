@@ -18,15 +18,13 @@ def generate_conversation_name(prompt, max_len=30):
 
     return short_name[0].upper() + short_name[1:] if short_name else "Conversation"
 
-if "conversations" not in st.session_state:
+def format_prompt(messages, prompt=prompt_context):
+    for message in messages:
+        role = "User" if message["role"] == "user" else "Assistant"
+        prompt += f"{role}: {message['content']}\n"
+    return prompt
 
-    st.session_state["conversations"] = []
-
-if "selected_conv_index" not in st.session_state:
-    st.session_state["selected_conv_index"] = None
-
-st.sidebar.title("Conversations")
-
+# Initialisation des conversations dans la session
 if "conversations" not in st.session_state:
     st.session_state["conversations"] = [
         {
@@ -34,7 +32,7 @@ if "conversations" not in st.session_state:
             "messages": [
                 {
                     "role": "assistant",
-                    "content": "Bonjour, je suis votre assistant !"
+                    "content": "Bonjour, je suis un nouvel assistant !"
                 }
             ],
         }
@@ -71,7 +69,7 @@ if conv_names:
 else:
     st.sidebar.info("Aucune conversation disponible.")
 
-#st.title("Chat")
+#st.title("chat")
 
 if st.session_state["selected_conv_index"] is not None and st.session_state["conversations"]:
     current_conv = st.session_state["conversations"][st.session_state["selected_conv_index"]]
