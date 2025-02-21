@@ -30,6 +30,25 @@ if "selected_conv_index" not in st.session_state:
 
 st.sidebar.title("Conversations")
 
+if "conversations" not in st.session_state:
+    st.session_state["conversations"] = [
+        {
+            "name": "Conversation 1",
+            "messages": [
+                {
+                    "role": "assistant",
+                    "content": "Bonjour, je suis votre assistant !"
+                }
+            ],
+        }
+    ]
+    st.session_state["selected_conv_index"] = 0
+
+if "selected_conv_index" not in st.session_state:
+    st.session_state["selected_conv_index"] = 0
+
+st.sidebar.title("Conversations")
+
 if st.sidebar.button("Nouvelle conversation"):
     new_conv = {
         "name": f"Conversation {len(st.session_state['conversations']) + 1}",
