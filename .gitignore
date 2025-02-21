@@ -3,3 +3,6 @@ __pycache__/
 *.pyo
 *.pdf
 .env
+
+.DS_Store
+.devcontainer/
