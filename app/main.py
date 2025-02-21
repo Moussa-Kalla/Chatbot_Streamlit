@@ -44,6 +44,25 @@ if "selected_conv_index" not in st.session_state:
 
 st.sidebar.title("Conversations")
 
+if "conversations" not in st.session_state:
+    st.session_state["conversations"] = [
+        {
+            "name": "Conversation 1",
+            "messages": [
+                {
+                    "role": "assistant",
+                    "content": "Bonjour, je suis votre assistant !"
+                }
+            ],
+        }
+    ]
+    st.session_state["selected_conv_index"] = 0
+
+if "selected_conv_index" not in st.session_state:
+    st.session_state["selected_conv_index"] = 0
+
+st.sidebar.title("Conversations")
+
 if st.sidebar.button("Nouvelle conversation"):
     new_conv = {
         "name": f"Conversation {len(st.session_state['conversations']) + 1}",
@@ -69,7 +88,11 @@ if conv_names:
 else:
     st.sidebar.info("Aucune conversation disponible.")
 
+<<<<<<< HEAD
 #st.title("chat")
+=======
+#st.title("Chat")
+>>>>>>> 4e63e02 (Updated)
 
 if st.session_state["selected_conv_index"] is not None and st.session_state["conversations"]:
     current_conv = st.session_state["conversations"][st.session_state["selected_conv_index"]]
