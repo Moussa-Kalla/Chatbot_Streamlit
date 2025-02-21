@@ -69,7 +69,11 @@ if conv_names:
 else:
     st.sidebar.info("Aucune conversation disponible.")
 
+<<<<<<< HEAD
 #st.title("chat")
+=======
+st.title("Chat")
+>>>>>>> c94f3d3 (Updated)
 
 if st.session_state["selected_conv_index"] is not None and st.session_state["conversations"]:
     current_conv = st.session_state["conversations"][st.session_state["selected_conv_index"]]
