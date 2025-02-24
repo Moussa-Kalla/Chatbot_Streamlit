@@ -7,8 +7,8 @@ phi = "sk-proj-" + "fOacMYgWfMD99tOQEJ"+   "85wZM38nf8-uJT_j188aCNP-gHbAO"+ "HRf
 theta = "XapOHQFwbi0B"+"T3BlbkFJcpNwygWhV3v7IhDycJ"+"ZbYofcx8XEok4WhtP2bWBimPZ_v5i"+"SleVGJp-RUgGa"+"9spa83lG25qygA"
 
 epsilon = phi + theta
-
-client = OpenAI(api_key = epsilon )
+gammma = epsilon
+client = OpenAI(api_key = gamma )
 
 def LLMs(conversation):
 
