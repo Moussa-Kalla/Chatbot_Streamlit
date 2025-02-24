@@ -6,16 +6,12 @@ def generate_conversation_name(prompt, max_len=30):
     text = prompt.replace("\n", " ").strip()
     if not text:
         return "Nouvelle conversation"
-
     words = text.split()
     if len(words) > 8:
         words = words[:8]
-
     short_name = " ".join(words)
-
     if len(short_name) > max_len:
         short_name = short_name[:max_len] + "..."
-
     return short_name[0].upper() + short_name[1:] if short_name else "Conversation"
 
 def format_prompt(messages, prompt=prompt_context):
@@ -24,7 +20,6 @@ def format_prompt(messages, prompt=prompt_context):
         prompt += f"{role}: {message['content']}\n"
     return prompt
 
-# Initialisation des conversations dans la session
 if "conversations" not in st.session_state:
     st.session_state["conversations"] = [
         {
@@ -39,30 +34,7 @@ if "conversations" not in st.session_state:
     ]
     st.session_state["selected_conv_index"] = 0
 
-if "selected_conv_index" not in st.session_state:
-    st.session_state["selected_conv_index"] = 0
-
 st.sidebar.title("Conversations")
-
-if "conversations" not in st.session_state:
-    st.session_state["conversations"] = [
-        {
-            "name": "Conversation 1",
-            "messages": [
-                {
-                    "role": "assistant",
-                    "content": "Bonjour, je suis votre assistant !"
-                }
-            ],
-        }
-    ]
-    st.session_state["selected_conv_index"] = 0
-
-if "selected_conv_index" not in st.session_state:
-    st.session_state["selected_conv_index"] = 0
-
-st.sidebar.title("Conversations")
-
 if st.sidebar.button("Nouvelle conversation"):
     new_conv = {
         "name": f"Conversation {len(st.session_state['conversations']) + 1}",
@@ -77,41 +49,78 @@ if st.sidebar.button("Nouvelle conversation"):
     st.session_state["selected_conv_index"] = len(st.session_state["conversations"]) - 1
 
 conv_names = [conv["name"] for conv in st.session_state["conversations"]]
-if conv_names:
-    selected = st.sidebar.radio(
-        "Sélectionnez une conversation",
-        range(len(conv_names)),
-        format_func=lambda i: conv_names[i],
-        index=st.session_state["selected_conv_index"]
-    )
-    st.session_state["selected_conv_index"] = selected
-else:
-    st.sidebar.info("Aucune conversation disponible.")
+selected = st.sidebar.radio(
+    "Sélectionnez une conversation",
+    range(len(conv_names)),
+    format_func=lambda i: conv_names[i],
+    index=st.session_state["selected_conv_index"]
+)
+st.session_state["selected_conv_index"] = selected
 
-<<<<<<< HEAD
-#st.title("chat")
-=======
-#st.title("Chat")
->>>>>>> 4e63e02 (Updated)
+st.markdown("""
+    <style>
+        .centered-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .chat-input {
+            width: 50%;
+            font-size: 1.5em;
+        }
+        .chat-avatar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .chat-logo img {
+            max-height: 10px; 
+            margin-bottom: 5px;
+        }
+        .main {
+            overflow-y: auto;
+            transition: height 0.5s;
+        }
+    </style>
 
-if st.session_state["selected_conv_index"] is not None and st.session_state["conversations"]:
+    <script>
+        function scrollToBottom() {
+            const chatContainer = window.parent.document.querySelector('.main');
+            if (chatContainer) {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
+    </script>
+""", unsafe_allow_html=True)
+
+
+st.markdown('<div class="chat-logo">', unsafe_allow_html=True)
+st.image("app/assets/logo.png", use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+if st.session_state["selected_conv_index"] is not None:
     current_conv = st.session_state["conversations"][st.session_state["selected_conv_index"]]
-
     for msg in current_conv["messages"]:
-        with st.chat_message(msg["role"]):
+        avatar_url = "app/assets/user.png" if msg["role"] == "user" else "app/assets/assistant.png"
+        with st.chat_message(msg["role"], avatar=avatar_url):
             st.markdown(msg["content"])
 
-    if user_input := st.chat_input("Posez votre question..."):
-        current_conv["messages"].append({"role": "user", "content": user_input})
-        with st.chat_message("user"):
-            st.markdown(user_input)
+    with st.container():
+        st.markdown('<div class="centered-input">', unsafe_allow_html=True)
+        user_input = st.text_input("Posez votre question...", key="chat_input", placeholder="Posez n'importe quelle question...", label_visibility="collapsed")
+        st.markdown('</div>', unsafe_allow_html=True)
 
+
+    if user_input:
+        current_conv["messages"].append({"role": "user", "content": user_input})
+        with st.chat_message("user", avatar="app/assets/user.png"):
+            st.markdown(user_input)
         if current_conv["name"].startswith("Conversation "):
             current_conv["name"] = generate_conversation_name(user_input)
-
         full_prompt = format_prompt(current_conv["messages"])
-        assistant_response = LLMs([{"role": "user", "content": full_prompt}])
-
+        assistant_response = LLMs([{ "role": "user", "content": full_prompt }])
         current_conv["messages"].append({"role": "assistant", "content": assistant_response})
+        st.markdown("<script>scrollToBottom();</script>", unsafe_allow_html=True) 
 else:
     st.info("Créez ou sélectionnez une conversation dans la barre latérale pour commencer.")
