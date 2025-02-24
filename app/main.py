@@ -90,7 +90,5 @@ if st.session_state["selected_conv_index"] is not None and st.session_state["con
         assistant_response = LLMs([{"role": "user", "content": full_prompt}])
 
         current_conv["messages"].append({"role": "assistant", "content": assistant_response})
-        with st.chat_message("assistant"):
-            st.markdown(assistant_response)
 else:
     st.info("Créez ou sélectionnez une conversation dans la barre latérale pour commencer.")
