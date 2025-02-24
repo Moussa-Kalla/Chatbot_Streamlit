@@ -5,6 +5,8 @@ Ce projet est un chatbot qui permet d'interagir avec des modèles de **LLM**.
 ## 📁 Structure du projet
 ```bash
 llm/
+│── .devcontainer/
+│   └──  devcontainer.json
 │── app/
 │   ├── assets/
 │   │   ├── assistant.png
