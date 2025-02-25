@@ -1,13 +1,20 @@
 # LLM Chatbot avec Ollama et Streamlit
 
-Ce projet est un chatbot basé sur **Ollama** et **Streamlit** qui permet d'interagir avec un modèle **LLM** comme llama3.2.
+Ce projet est un chatbot qui permet d'interagir avec des modèles de **LLM**.
 
 ## 📁 Structure du projet
 ```bash
 llm/
-│── app/                            
-│   ├── chat.py          
-│   └── main.py         
+│── .devcontainer/
+│   └──  devcontainer.json
+│── app/
+│   ├── assets/
+│   │   ├── assistant.png
+│   │   ├── logo.png  
+│   │   └── user.png          
+│   ├── chat.py
+│   ├── main.py          
+│   └── prompt.py       
 │── requirements.txt 
 │── README.md
 │── app_screeshoot.png          
