@@ -27,7 +27,7 @@ if "conversations" not in st.session_state:
             "messages": [
                 {
                     "role": "assistant",
-                    "content": "Bonjour, je suis un nouvel assistant !"
+                    "content": "Bonjour, je suis votre assistant !"
                 }
             ],
         }
@@ -41,7 +41,7 @@ if st.sidebar.button("Nouvelle conversation"):
         "messages": [
             {
                 "role": "assistant",
-                "content": "Bonjour, je suis un nouvel assistant !"
+                "content": "Bonjour, je suis votre assistant !"
             }
         ],
     }
@@ -93,7 +93,6 @@ st.markdown("""
         }
     </script>
 """, unsafe_allow_html=True)
-
 
 st.markdown('<div class="chat-logo">', unsafe_allow_html=True)
 st.image("app/assets/logo.png", use_container_width=True)
