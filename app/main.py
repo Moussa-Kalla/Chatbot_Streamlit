@@ -74,10 +74,17 @@ st.markdown("""
             height: 50px;
             border-radius: 50%;
         }
-        .chat-logo img {
-            max-height: 10px; 
-            margin-bottom: 5px;
+        /* Début des modifications pour le logo */
+        .chat-logo {
+            text-align: center;
+            margin: 20px 0;
         }
+        .chat-logo img {
+            max-width: 200px !important;  /* Taille personnalisable ici */
+            height: auto !important;
+            width: auto !important;
+        }
+        /* Fin des modifications */
         .main {
             overflow-y: auto;
             transition: height 0.5s;
@@ -94,8 +101,9 @@ st.markdown("""
     </script>
 """, unsafe_allow_html=True)
 
+# Section du logo modifiée
 st.markdown('<div class="chat-logo">', unsafe_allow_html=True)
-st.image("app/assets/logo.png", use_container_width=True)
+st.image("app/assets/logo.png", use_container_width =False, width=200)  # Ajustez la valeur 'width' ici
 st.markdown('</div>', unsafe_allow_html=True)
 
 if st.session_state["selected_conv_index"] is not None:
