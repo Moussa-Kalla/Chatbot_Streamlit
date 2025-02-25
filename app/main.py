@@ -24,7 +24,6 @@ def format_prompt(messages, prompt=prompt_context):
         prompt += f"{role}: {message['content']}\n"
     return prompt
 
-# Initialisation des conversations dans la session
 if "conversations" not in st.session_state:
     st.session_state["conversations"] = [
         {
@@ -32,7 +31,7 @@ if "conversations" not in st.session_state:
             "messages": [
                 {
                     "role": "assistant",
-                    "content": "Bonjour, je suis un nouvel assistant !"
+                    "content": "Bonjour, je suis votre assistant !"
                 }
             ],
         }
@@ -50,7 +49,7 @@ if st.sidebar.button("Nouvelle conversation"):
         "messages": [
             {
                 "role": "assistant",
-                "content": "Bonjour, je suis un nouvel assistant !"
+                "content": "Bonjour, je suis votre assistant !"
             }
         ],
     }
@@ -69,7 +68,7 @@ if conv_names:
 else:
     st.sidebar.info("Aucune conversation disponible.")
 
-#st.title("chat")
+#st.title("SAFTbot")
 
 if st.session_state["selected_conv_index"] is not None and st.session_state["conversations"]:
     current_conv = st.session_state["conversations"][st.session_state["selected_conv_index"]]
