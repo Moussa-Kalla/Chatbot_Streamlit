@@ -34,7 +34,7 @@ if "conversations" not in st.session_state:
             "messages": [
                 {
                     "role": "assistant",
-                    "content": "Bonjour, je suis votre assistant !"
+                    "content": "Je suis Moussa votre assistant, comment puis-je vous aider ?"
                 }
             ],
         }
@@ -52,7 +52,7 @@ if st.sidebar.button("Nouvelle conversation"):
         "messages": [
             {
                 "role": "assistant",
-                "content": "Bonjour, je suis votre assistant !"
+                "content": "Je suis Moussa votre assistant, comment puis-je vous aider ?"
             }
         ],
     }
@@ -73,7 +73,7 @@ else:
 
 ########################################################    
 #st.markdown('<div class="chat-logo">', unsafe_allow_html=True)
-#st.image("assets/logo.png", width=300)
+st.image("assets/logo.svg", width=300)
 #st.markdown('</div>', unsafe_allow_html=True)
 ##############################################################
 
@@ -89,7 +89,7 @@ if st.session_state["selected_conv_index"] is not None and st.session_state["con
         with st.chat_message("user", avatar="assets/user.svg"):
             st.markdown(user_input)
 
-        if current_conv["name"].startswith("Conversation "):
+        if current_conv["name"].startswith("Conversation"):
             current_conv["name"] = generate_conversation_name(user_input)
 
         full_prompt = format_prompt(current_conv["messages"])
