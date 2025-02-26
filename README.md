@@ -26,7 +26,7 @@ llm/
 
 Liens d'accès : [https://moussa-gpt.streamlit.app/](https://moussa-gpt.streamlit.app/)
 
-![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/assets/app_screeshoot.gif?raw=true)  
+![Aperçu du projet](https://github.com/Moussa-Kalla/Chatbot_Streamlit/blob/master/assets/app_screeshoot.gif?raw=true)  
 
 
 ##  Installation et Exécution
