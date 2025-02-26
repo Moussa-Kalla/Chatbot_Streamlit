@@ -10,6 +10,7 @@ llm/
 │   └──  devcontainer.json
 ├── assets/
 │   ├── assistant.png
+│   ├── app_screeshoot.gif
 │   ├── logo.png  
 │   └── user.png 
 │── app/         
@@ -17,8 +18,7 @@ llm/
 │   ├── main.py          
 │   └── prompt.py       
 │── requirements.txt 
-│── README.md
-│── app_screeshoot.png          
+│── README.md     
 └── .gitignore
 ```
 
@@ -26,7 +26,7 @@ llm/
 
 Liens d'accès : [https://moussa-gpt.streamlit.app/](https://moussa-gpt.streamlit.app/)
 
-![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/app_screeshoot.png?raw=true)  
+![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/assets/app_screeshoot.gif?raw=true)  
 
 
 ##  Installation et Exécution
