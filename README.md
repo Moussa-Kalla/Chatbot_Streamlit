@@ -1,17 +1,18 @@
-# LLM Chatbot avec Ollama et Streamlit
+# LLM Chatbot avec l'API d'OpenAI et Streamlit
 
-Ce projet est un chatbot qui permet d'interagir avec des modèles de **LLM**.
+Ce projet est un chatbot intelligent qui permet d’interagir avec des modèles de LLM (Large Language Models) qui reflètent ma propre personnalité via une interface web conviviale développée avec Streamlit.
 
 ## 📁 Structure du projet
+
 ```bash
 llm/
 │── .devcontainer/
 │   └──  devcontainer.json
-│── app/
-│   ├── assets/
-│   │   ├── assistant.png
-│   │   ├── logo.png  
-│   │   └── user.png          
+├── assets/
+│   ├── assistant.png
+│   ├── logo.png  
+│   └── user.png 
+│── app/         
 │   ├── chat.py
 │   ├── main.py          
 │   └── prompt.py       
@@ -44,10 +45,10 @@ streamlit run app/main.py
 ```
 
 ## Technologies utilisées
--	[Ollama](https://ollama.com/) → Exécution du modèle de LLM
--	[streamlit](https://streamlit.io/) → Interface web
+-	[OpenAI](https://platform.openai.com/) → API d'OpenAI
+-	[Streamlit](https://streamlit.io/) → Interface web
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 - Poser des questions au chatbot 
-- Obtenir des réponses du modèle Llama3.2:1b
+- Obtenir des réponses du modèle Gpt4o 
