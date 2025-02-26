@@ -23,7 +23,7 @@ llm/
 
 ## Aperçu du Projet
 
-[Liens d'accès](https://moussa-gpt.streamlit.app/)
+Liens d'accès : [https://moussa-gpt.streamlit.app/](https://moussa-gpt.streamlit.app/)
 
 ![Aperçu du projet](https://github.com/Moussa-Kalla/LLM/blob/master/app_screeshoot.png?raw=true)  
 
