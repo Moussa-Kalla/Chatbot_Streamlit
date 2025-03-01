@@ -16,7 +16,8 @@ llm/
 │── app/         
 │   ├── chat.py
 │   ├── main.py          
-│   └── prompt.py       
+│   └── prompt.py   
+│── Dockerfile     
 │── requirements.txt 
 │── README.md     
 └── .gitignore
