@@ -1,8 +1,10 @@
 import streamlit as st
 from chat import LLMs
 from prompt import prompt_context
-import subprocess
 
+
+models = ["gpt-4o", "gpt-4.5-preview-2025-02-27", "gpt-4.5-preview"]
+selected_model = st.sidebar.selectbox("Sélectionnez un modèle", models)
 
 
 def generate_conversation_name(prompt, max_len=30):
@@ -93,12 +95,8 @@ if st.session_state["selected_conv_index"] is not None and st.session_state["con
             current_conv["name"] = generate_conversation_name(user_input)
 
         full_prompt = format_prompt(current_conv["messages"])
-        assistant_response = LLMs([{"role": "user", "content": full_prompt}])
+        assistant_response = LLMs([{"role": "user", "content": full_prompt}], selected_model)
 
         current_conv["messages"].append({"role": "assistant", "content": assistant_response})
 else:
     st.info("Créez ou sélectionnez une conversation dans la barre latérale pour commencer.")
-
-
-
-#subprocess.Popen(["streamlit", "run", "app/main.py"])
