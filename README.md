@@ -15,7 +15,7 @@ llm/
 │   └── user.png 
 │── app/         
 │   ├── chat.py
-│   ├── main.py          
+│   ├── main.py  
 │   └── prompt.py   
 │── Dockerfile     
 │── requirements.txt 
