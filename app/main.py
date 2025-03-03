@@ -1,9 +1,10 @@
 import streamlit as st
 from chat import LLMs
 from prompt import prompt_context
+import ollama
 
-
-models = ["gpt-4o", "gpt-4.5-preview-2025-02-27", "gpt-4.5-preview"]
+models_data = ollama.list().models 
+models = [model.model for model in models_data]
 selected_model = st.sidebar.selectbox("Sélectionnez un modèle", models)
 
 
