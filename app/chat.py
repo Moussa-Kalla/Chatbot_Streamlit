@@ -12,10 +12,7 @@ def LLMs(conversation, model):
     text_placeholder = st.empty() 
 
     for chunk in response:
-        if chunk and hasattr(chunk[0].delta, "content"):
-            delta_content = chunk[0].delta.content
-            if delta_content: 
-                content += delta_content
-                text_placeholder.markdown(content)
+        content += chunk['message']['content']
+        text_placeholder.markdown(content)
 
     return content
