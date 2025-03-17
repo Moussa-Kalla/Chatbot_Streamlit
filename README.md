@@ -52,4 +52,8 @@ streamlit run app/main.py
 ## Fonctionnalités
 
 - Poser des questions au chatbot 
-- Obtenir des réponses du modèle Gpt4o 
+- Obtenir des réponses du modèle Gpt4o
+
+
+Merci pour votre visite, et surtout, n’hésitez pas à me laisser une petite étoile sur le repo ! J’aime collectionner les étoiles autant que j’aime coder.
+
