@@ -2,12 +2,17 @@ import streamlit as st
 from chat import LLMs
 from prompt import prompt_context
 import ollama
+import os
 
 class ChatApp:
     def __init__(self):
         self._init_state()
-        self.models = [m.model for m in ollama.list().models]
-        self.model = st.sidebar.selectbox("Modèle", self.models)
+        try:
+            self.models = [m.model for m in ollama.list().models]
+        except Exception as e:
+            st.error(f"Error fetching models: {e}")
+            self.models = []
+        self.model = st.sidebar.selectbox("Modèle", self.models) if self.models else st.sidebar.info("No models available.")
 
     def _init_state(self):
         if "convs" not in st.session_state:
@@ -42,7 +47,12 @@ class ChatApp:
 
     def _chat_ui(self):
         """Affiche UI chat."""
-        st.image("assets/logo.svg", width=200)
+        logo_path = "assets/logo.svg"
+        if not os.path.exists(logo_path):
+            st.error(f"Le fichier {logo_path} est introuvable.")
+            return
+
+        st.image(logo_path, width=200)
         if not st.session_state["convs"]:
             st.info("Créer/choisir conv.")
             return
@@ -50,6 +60,9 @@ class ChatApp:
         conv = st.session_state["convs"][st.session_state["idx"]]
         for msg in conv["msgs"]:
             avatar = "assets/user.svg" if msg["role"] == "user" else "assets/assistant.svg"
+            if not os.path.exists(avatar):
+                st.error(f"Le fichier {avatar} est introuvable.")
+                return
             with st.chat_message(msg["role"], avatar=avatar):
                 st.markdown(msg["content"])
 
